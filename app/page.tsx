@@ -1,6 +1,20 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 const Home = () => {
+  const [todos, setTodos] = useState([])
+  const [inputvalue, setInputValue] = useState('')
+
+  const handleInputValue = (event:any)=>{
+    setInputValue(event.target.value)
+  }
+  const handleAddTodo = ()=>{
+    setTodos([...todos,inputvalue])
+    setInputValue('')
+  }
+  const handleDeleteTodo=(index:any)=>{
+    const newTodos = todos.filter((...,i)=>i!==index)
+    setTodos(newTodos)
+  }
   return (
     <div className="mx-auto max-w-md">
       <h1 className="text-3xl font-bold mb-4">TODO app</h1>
