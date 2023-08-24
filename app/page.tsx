@@ -36,9 +36,14 @@ const Home = () => {
       </div>
       <ul className="list-disc list-inside my-4">
         {todos.map((todo, index) => (
-          <li key={index}>
+          <li key={index} className="flex justify-between items-center mb-2">
             {todo}
-            <button onClick={() => handleDeleteTodo(index)}>Delete</button>
+            <button
+              onClick={() => handleDeleteTodo(index)}
+              className="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 rounded"
+            >
+              X
+            </button>
           </li>
         ))}
       </ul>
